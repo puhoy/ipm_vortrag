@@ -33,7 +33,7 @@ def build():
     output_from_parsed_template = template.render()
 
     with open("index.html", "wb") as fh:
-        fh.write(output_from_parsed_template)
+        fh.write(bytes(output_from_parsed_template, encoding='utf-8'))
 
 
 def observe():

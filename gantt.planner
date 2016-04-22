@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<project name="" company="" manager="" phase="Implementierung" project-start="20160301T000000Z" mrproject-version="2" calendar="1">
+  <properties/>
+  <phases>
+    <phase name="Analyse"/>
+    <phase name="Planung"/>
+    <phase name="Implementierung"/>
+  </phases>
+  <calendars>
+    <day-types>
+      <day-type id="0" name="Arbeiten" description="Ein Vorgabe-Arbeitstag"/>
+      <day-type id="1" name="Nicht Arbeiten" description="Ein Vorgabetag, an dem nicht gearbeitet wird"/>
+      <day-type id="2" name="Basis verwenden" description="Tag vom Basiskalender verwenden"/>
+    </day-types>
+    <calendar id="1" name="Vorgabe">
+      <default-week mon="0" tue="0" wed="0" thu="0" fri="0" sat="1" sun="0"/>
+      <overridden-day-types>
+        <overridden-day-type id="0">
+          <interval start="0800" end="1200"/>
+          <interval start="1300" end="1700"/>
+        </overridden-day-type>
+      </overridden-day-types>
+      <days>
+        <day date="20160421" type="day-type" id="0"/>
+      </days>
+    </calendar>
+  </calendars>
+  <tasks>
+    <task id="1" name="Analyse" note="" work="1699200" start="20160301T000000Z" end="20160421T170000Z" work-start="20160301T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
+      <task id="2" name="Machbarkeit pr&#xFC;fen" note="fghjfghj" work="1296000" start="20160301T000000Z" end="20160421T170000Z" work-start="20160301T080000Z" percent-complete="49" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="3" name="Funktionsumfang -&gt; Tools+Libaries" note="" work="115200" start="20160301T000000Z" end="20160304T170000Z" work-start="20160301T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="4" name="Systemarchitektur" note="" work="288000" start="20160304T170000Z" end="20160316T170000Z" work-start="20160306T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="3" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="5" name="Prototyp" note="" work="1929600" start="20160304T170000Z" end="20160421T170000Z" work-start="20160306T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="6" name="BitTorrent" note="" work="864000" start="20160304T170000Z" end="20160408T170000Z" work-start="20160306T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="3" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="7" name="XMPP" note="" work="864000" start="20160309T170000Z" end="20160413T170000Z" work-start="20160310T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="SS" lag="432000"/>
+        </predecessors>
+      </task>
+      <task id="8" name="JSONRPC Schnittstelle" note="" work="144000" start="20160413T170000Z" end="20160419T170000Z" work-start="20160414T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="FS"/>
+          <predecessor id="1" predecessor-id="7" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="9" name="Testen" note="" work="57600" start="20160419T170000Z" end="20160421T170000Z" work-start="20160420T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="8" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="10" name="Grundfunktionen getestet" note="" work="0" start="20160421T170000Z" end="20160421T170000Z" work-start="20160421T170000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="9" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="11" name="Definition" note="" work="28800" start="20160421T170000Z" end="20160422T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+      <task id="12" name="Zeitplanung" note="" work="28800" start="20160421T170000Z" end="20160422T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    </task>
+    <task id="13" name="Implementierung" note="" work="1526400" start="20160421T170000Z" end="20160622T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+      <task id="14" name="Implementierung Tests API" note="" work="201600" start="20160421T170000Z" end="20160429T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="15" name="1. Version GUI" note="" work="403200" start="20160429T170000Z" end="20160516T170000Z" work-start="20160501T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="14" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="16" name="Installation+Benutzung Dokumentieren" note="" work="57600" start="20160516T170000Z" end="20160518T170000Z" work-start="20160517T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="15" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="17" name="Pakete f&#xFC;r Betatester" note="" work="0" start="20160518T170000Z" end="20160518T170000Z" work-start="20160518T170000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="16" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="18" name="Reinschrift Prototyp" note="" work="864000" start="20160518T170000Z" end="20160622T170000Z" work-start="20160519T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="17" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="19" name="Planung" note="" work="157500" start="20160421T170000Z" end="20160428T114500Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+    </task>
+    <task id="20" name="Entwurf" note="" work="157500" start="20160301T000000Z" end="20160307T114500Z" work-start="20160301T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="21" name="Thesis schreiben" note="" work="2419200" start="20160421T170000Z" end="20160728T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <predecessors>
+        <predecessor id="1" predecessor-id="1" type="FS"/>
+      </predecessors>
+      <task id="22" name="Thesis" note="" work="2246400" start="20160421T170000Z" end="20160721T170000Z" work-start="20160422T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="23" name="Puffer" note="" work="172800" start="20160721T170000Z" end="20160728T170000Z" work-start="20160722T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="22" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="24" name="Abgabe" note="" work="0" start="20160802T000000Z" end="20160802T000000Z" work-start="20160802T080000Z" percent-complete="0" priority="100" type="milestone" scheduling="fixed-work">
+      <constraint type="must-start-on" time="20160802T000000Z"/>
+    </task>
+    <task id="25" name="" note="" work="28800" start="20160301T000000Z" end="20160301T170000Z" work-start="20160301T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+  </tasks>
+  <resource-groups/>
+  <resources/>
+  <allocations/>
+</project>

@@ -33,6 +33,11 @@
 <!--[if lt IE 9]>
 <script src="lib/js/html5shiv.js"></script>
 <![endif]-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <script type="text/javascript" src="resources/time.js">
+
+  </script>
 
 	</head>
 
@@ -54,7 +59,7 @@
             <script type="text/template">
                 ## Übersicht
                 <ol>
-                    <li>Motivation</li>
+                    <li>Problemstellung</li>
                     <li>Die Idee
 <ul>
                     <li>Techniken
@@ -71,34 +76,65 @@
             </script>
         </section>
         <section>
-
-    <h1>Motivation</h1>
-
-    <img>[!img] ein bild von einem chatlog wo die dateiübertragung nicht funktioniert
+    <h1>Problemstellung</h1>
+    <!--<h3>aka Problemstellung</h3>-->
 
     <aside class="notes">
-        - xmpp ist im großen und ganzen self-hosted von privatleuten
-        -> keine Bandbreite Dateiübertragungen über Server abzuwickeln
-        -> P2P klappt superduperselten
+        - xmpp ist cool, aber:
+        ist im großen und ganzen self-hosted von privatleuten
+        -> keine Bandbreite Dateiübertragungen über Server abzuwickeln, deshalb abgestellt
+        -> P2P klappt superduperselten, weil man ports öffnen müsste
         # todo: was macht xmpp eigentlich standardmäßig für dateiübertragungen?
+        http://jabber.org/protocol/bytestreams
+        http://jabber.org/protocol/ibb
 
     </aside>
 </section>
-        <section>
+<section>
+    <h3>Extensible Messaging and Presence Protocol</h3>
+    <h5>("Jabber")</h5>
+    <ul>
+        <li>erweiterbares Messagingprotokoll</li>
+        <li>dezentral (Architektur ähnlich wie bei Email)</li>
+        <li>offener Standard</li>
+        <li>einfach um neue Funktionen zu erweitern</li>
+    </ul>
+</section>
+<section>
+    <section>
+        <h5>...Nachteil:</h5>
+        <ul>
+        <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
+        <li>out-of-band Übertragungen benötigen Proxy</li>
+            </ul>
+
+        <img src="../resources/xmpp_filetransfer_not_working_underlined.png"><br>
+
+    </section>
+
+    <section>
+        <q style="text-align: left;">
+            <p>(23:26:30) <b>A:</b> kannst du dich dran erinnern wann das letzte mal eine dateiübertragung per jabber
+                geklappt hat?</p>
+            <p>(23:27:47) <b>B:</b> Nein^^</p>
+            <p>(23:28:14) Angebot zum Senden von xmpp_filetransfer_not_working.png an B</p>
+        </q>
+
+        <img src="../resources/screenshot_transfer.png">
+    </section>
+</section>
+        
     <section>
         <h2>die Idee</h2>
-
+        <br>
+<h3>"...könnte man da nicht BitTorrent ankoppeln?"</h3>
         <!-- ### (aka wo will man hin) -->
-
-        [!img]...
         <ol>
-            <li>Dateien/Verzeichnisse für Kontakte freigeben</li>
+            <li>Dateien/Verzeichnisse freigeben</li>
             <li>Freigabelisten an alle Kontakte übermitteln</li>
             <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
             <li>wenn gewollt downloaden + selbst freigeben</li>
         </ol>
-
-        <p>...und das alles am liebsten per BitTorrent</p>
 
         <aside class="notes">
             bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
@@ -110,6 +146,11 @@
 
     </section>
     <section>
+        <h2>BitTorrent</h2>
+        ...
+    </section>
+
+<section>
         <h2>Techniken</h2>
         # todo: flowchart
         <ol>
@@ -130,8 +171,6 @@
         - wir benötigen keinen Torrent Tracker (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))
         -
     </section>
-</section>
-
 
 
 
@@ -149,19 +188,8 @@
     </section>
 </section>
 
-        <section data-markdown>
-    <script type="text/template">
-## Meilensteine (TODO: Termine!)
-  - Prototyp
-    - XMPP:
-      - Liste von Links publishen können
-    - BT:
-      - Dateiübertragung mit manuell hinzugefügten Peeradressen
-    - Kontrolle per JSONRPC (== Schnittstelle für Frontends nutzbar)
-  - 1. Version Frontend -> Betatester können betattesten
-  - ...
-  - Abgabe
-    </script>
+        <section>
+<div id="chart_div"></div>
 </section>
     </div>
 </div>
