@@ -1,50 +1,52 @@
+<section>
+    <h2>die Idee</h2>
+    <br>
+    <h3>"...könnte man da nicht BitTorrent ankoppeln?"</h3>
+    <!-- ### (aka wo will man hin) -->
+    <ol>
+        <li>Dateien/Verzeichnisse freigeben</li>
+        <li>Freigabelisten an alle Kontakte übermitteln</li>
+        <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
+        <li>wenn gewollt downloaden + selbst freigeben</li>
+    </ol>
 
-    <section>
-        <h2>die Idee</h2>
-        <br>
-<h3>"...könnte man da nicht BitTorrent ankoppeln?"</h3>
-        <!-- ### (aka wo will man hin) -->
-        <ol>
-            <li>Dateien/Verzeichnisse freigeben</li>
-            <li>Freigabelisten an alle Kontakte übermitteln</li>
-            <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
-            <li>wenn gewollt downloaden + selbst freigeben</li>
-        </ol>
+    <aside class="notes">
+        bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
+        schnellere Übertragung, je mehr Kontakte eine Datei anbieten
+        xmpp: sowieso den ganzen tag offen
 
-        <aside class="notes">
-            bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
-            schnellere Übertragung, je mehr Kontakte eine Datei anbieten
-            xmpp: sowieso den ganzen tag offen
+        -: eigene downloads sind direkt auch immer in der kontaktliste freigegeben
+    </aside>
 
-            -: eigene downloads sind direkt auch immer in der kontaktliste freigegeben
-        </aside>
-
-    </section>
-    <section>
-        <h2>BitTorrent</h2>
-        ...
-    </section>
+</section>
+<section>
+    <h2>BitTorrent</h2>
+    ...
+</section>
 
 <section>
-        <h2>Techniken</h2>
-        # todo: flowchart
-        <ol>
-            <li>BitTorrent: Torrents für freigegebene Dateien/Verzeichnisse erzeugen</li>
-            <li>XMPP: Torrent Hashes und eigene IP ähnlich der eigenen Statusnachricht an alle Kontakte publishen
-                ("PubSub")
-            </li>
-            <li>XMPP: bekommene Hashes aggregieren, durchsuchbar machen</li>
-            <li>BT: neuen Torrent aus Hash adden, Peer-IPs hinzufügen</li>
-            <li>Kaffee trinken, während BitTorrent sich um den Rest kümmert</li>
-        </ol>
-        # todo: das als grafik mit BT links und XMPP rechts
-    </section>
-    <section>
-        Vorteile:
-        - wir brauchen nur die bestehende XMPP infrastruktur
-        - wir sharen immer nur zwischen bekannten Kontakten, unbekannte IPs lassen sich blocken
-        - wir benötigen keinen Torrent Tracker (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))
-        -
-    </section>
+    <h2>Techniken</h2>
+    # todo: flowchart
+    <ol>
+        <li>BitTorrent: Torrents für freigegebene Dateien/Verzeichnisse erzeugen</li>
+        <li>XMPP: Torrent Hashes und eigene IP ähnlich der eigenen Statusnachricht an alle Kontakte publishen
+            ("PubSub")
+        </li>
+        <li>XMPP: bekommene Hashes aggregieren, durchsuchbar machen</li>
+        <li>BT: neuen Torrent aus Hash adden, Peer-IPs hinzufügen</li>
+        <li>Kaffee trinken, während BitTorrent sich um den Rest kümmert</li>
+    </ol>
+    # todo: das als grafik mit BT links und XMPP rechts
+</section>
+<section>
+    <h4>Vorteile:</h4>
+    <ul>
+        <li>benötigt wird nur die bestehende XMPP infrastruktur</li>
+        <li>geteilt wird immer nur zwischen bekannten Kontakten, unbekannte IPs lassen sich blockieren</li>
+        <li>kein Torrent Tracker nötig</li>
+        <!-- (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))-->
+    </ul>
+</section>
+
 
 
