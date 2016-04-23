@@ -4,9 +4,16 @@
         <section>
             <h1>IPM Vortrag</h1>
             <h3>BA Planung</h3>
+            <p>(oder: "Warum hat eigentlich noch niemand das beste Chatprotokoll mit dem besten Filesharingprotokoll
+                verknüpft?")</p>
             <p>
                 <small>
                     <a href="http://kwoh.de">Jan Hartmann</a> / 11083800
+                </small>
+            </p>
+            <p>
+                <small>
+                    <a href="http://puhoy.github.io/ipm_vortrag">puhoy.github.io/ipm_vortrag</a>
                 </small>
             </p>
         </section>
@@ -14,16 +21,17 @@
             <script type="text/template">
                 ## Übersicht
                 <ol>
-                    <li>Problemstellung</li>
+                    <li>Problemstellung (was es an Jabber zu meckern gibt)</li>
                     <li>Die Idee
-<ul>
-                    <li>Techniken
                         <ul>
-                            <li>Xmpp: pubsub</li>
-                            <li>BitTorrent</li>
+                            <li>Techniken
+                                <ul>
+                                    <li>Xmpp: pubsub</li>
+                                    <li>BitTorrent</li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    </ul></li>
                     <li>Klassendiagramm</li>
                     <li>Meilensteine</li>
                     <li></li>
@@ -31,6 +39,7 @@
             </script>
         </section>
         {% include 'slides/motivation.html' %}
+        {% include 'slides/xmpp.html' %}
         {% include 'slides/idea.html' %}
 
         {% include 'slides/classdiagrams.html' %}

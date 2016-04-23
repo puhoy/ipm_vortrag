@@ -49,9 +49,16 @@
         <section>
             <h1>IPM Vortrag</h1>
             <h3>BA Planung</h3>
+            <p>(oder: "Warum hat eigentlich noch niemand das beste Chatprotokoll mit dem besten Filesharingprotokoll
+                verknüpft?")</p>
             <p>
                 <small>
                     <a href="http://kwoh.de">Jan Hartmann</a> / 11083800
+                </small>
+            </p>
+            <p>
+                <small>
+                    <a href="http://puhoy.github.io/ipm_vortrag">puhoy.github.io/ipm_vortrag</a>
                 </small>
             </p>
         </section>
@@ -59,16 +66,17 @@
             <script type="text/template">
                 ## Übersicht
                 <ol>
-                    <li>Problemstellung</li>
+                    <li>Problemstellung (was es an Jabber zu meckern gibt)</li>
                     <li>Die Idee
-<ul>
-                    <li>Techniken
                         <ul>
-                            <li>Xmpp: pubsub</li>
-                            <li>BitTorrent</li>
+                            <li>Techniken
+                                <ul>
+                                    <li>Xmpp: pubsub</li>
+                                    <li>BitTorrent</li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    </ul></li>
                     <li>Klassendiagramm</li>
                     <li>Meilensteine</li>
                     <li></li>
@@ -90,8 +98,8 @@
 
     </aside>
 </section>
-<section>
-    <h3>Extensible Messaging and Presence Protocol</h3>
+        <section>
+    <h3>XMPP: Extensible Messaging and Presence Protocol</h3>
     <h5>("Jabber")</h5>
     <ul>
         <li>erweiterbares Messagingprotokoll</li>
@@ -109,7 +117,9 @@
             </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
-
+        <aside>
+            base64 -> bytes * 4/3 + overhead
+        </aside>
     </section>
 
     <section>
@@ -125,17 +135,17 @@
 </section>
         <section>
     <h2>die Idee</h2>
-    <br>
-    <h3>"...könnte man da nicht BitTorrent ankoppeln?"</h3>
-    <!-- ### (aka wo will man hin) -->
     <ol>
         <li>Dateien/Verzeichnisse freigeben</li>
         <li>Freigabelisten an alle Kontakte übermitteln</li>
         <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
         <li>wenn gewollt downloaden + selbst freigeben</li>
     </ol>
-
+    <br>
+    <br>
+    <h3>"...könnte man da nicht BitTorrent benutzen?"</h3>
     <aside class="notes">
+        freigeben statt pushen, mit bt
         bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
         schnellere Übertragung, je mehr Kontakte eine Datei anbieten
         xmpp: sowieso den ganzen tag offen
@@ -145,24 +155,31 @@
 
 </section>
 <section>
-    <h2>BitTorrent</h2>
+    <h4>kann man. sogar recht elegant.</h4>
+    <h5>BitTorrent -> magnetlinks</h5>
+    <h5>XMPP -> PEP</h5>
+    (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
+</section>
+<section>
+    <h3>Magnetlinks</h3>
     ...
 </section>
+<section>
+    <section>
+        <h3>PEP</h3>
+        grafik: pep publish an server (statusnachricht)
+    </section>
+    <section>
+        grafik: pep publish an server (magnetlink daten)
+    </section>
+</section>
+
 
 <section>
-    <h2>Techniken</h2>
-    # todo: flowchart
-    <ol>
-        <li>BitTorrent: Torrents für freigegebene Dateien/Verzeichnisse erzeugen</li>
-        <li>XMPP: Torrent Hashes und eigene IP ähnlich der eigenen Statusnachricht an alle Kontakte publishen
-            ("PubSub")
-        </li>
-        <li>XMPP: bekommene Hashes aggregieren, durchsuchbar machen</li>
-        <li>BT: neuen Torrent aus Hash adden, Peer-IPs hinzufügen</li>
-        <li>Kaffee trinken, während BitTorrent sich um den Rest kümmert</li>
-    </ol>
-    # todo: das als grafik mit BT links und XMPP rechts
+    <h2></h2>
+    <img src="resources/concept.svg">
 </section>
+
 <section>
     <h4>Vorteile:</h4>
     <ul>

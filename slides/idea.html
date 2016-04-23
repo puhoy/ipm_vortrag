@@ -1,16 +1,16 @@
 <section>
     <h2>die Idee</h2>
-    <br>
-    <h3>"...könnte man da nicht BitTorrent ankoppeln?"</h3>
-    <!-- ### (aka wo will man hin) -->
     <ol>
         <li>Dateien/Verzeichnisse freigeben</li>
         <li>Freigabelisten an alle Kontakte übermitteln</li>
         <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
         <li>wenn gewollt downloaden + selbst freigeben</li>
     </ol>
-
+    <br>
+    <br>
+    <h3>"...könnte man da nicht BitTorrent benutzen?"</h3>
     <aside class="notes">
+        freigeben statt pushen, mit bt
         bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
         schnellere Übertragung, je mehr Kontakte eine Datei anbieten
         xmpp: sowieso den ganzen tag offen
@@ -20,24 +20,31 @@
 
 </section>
 <section>
-    <h2>BitTorrent</h2>
+    <h4>kann man. sogar recht elegant.</h4>
+    <h5>BitTorrent -> magnetlinks</h5>
+    <h5>XMPP -> PEP</h5>
+    (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
+</section>
+<section>
+    <h3>Magnetlinks</h3>
     ...
 </section>
+<section>
+    <section>
+        <h3>PEP</h3>
+        grafik: pep publish an server (statusnachricht)
+    </section>
+    <section>
+        grafik: pep publish an server (magnetlink daten)
+    </section>
+</section>
+
 
 <section>
-    <h2>Techniken</h2>
-    # todo: flowchart
-    <ol>
-        <li>BitTorrent: Torrents für freigegebene Dateien/Verzeichnisse erzeugen</li>
-        <li>XMPP: Torrent Hashes und eigene IP ähnlich der eigenen Statusnachricht an alle Kontakte publishen
-            ("PubSub")
-        </li>
-        <li>XMPP: bekommene Hashes aggregieren, durchsuchbar machen</li>
-        <li>BT: neuen Torrent aus Hash adden, Peer-IPs hinzufügen</li>
-        <li>Kaffee trinken, während BitTorrent sich um den Rest kümmert</li>
-    </ol>
-    # todo: das als grafik mit BT links und XMPP rechts
+    <h2></h2>
+    <img src="resources/concept.svg">
 </section>
+
 <section>
     <h4>Vorteile:</h4>
     <ul>
