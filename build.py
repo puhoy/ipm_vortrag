@@ -16,6 +16,9 @@ import time
 import logging
 from watchdog.observers import Observer
 from watchdog.events import LoggingFileSystemEventHandler
+from http.server import SimpleHTTPRequestHandler
+from http.server import HTTPServer
+import threading
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -45,26 +48,55 @@ def observe():
     event_handler = BuildEventHandler()
     observer = Observer()
     observer.schedule(event_handler, path, recursive=True)
-    observer.start()
-    try:
-        while True:
-            time.sleep(5)
-    except KeyboardInterrupt:
-        observer.stop()
-    observer.join()
+    return observer
 
+
+def serve():
+    port = 8081
+    server = HTTPServer(('', port), SimpleHTTPRequestHandler)
+    thread = threading.Thread(target=server.serve_forever)
+    thread.daemon = False
+
+    print('serving on %s...' % port)
+    return thread
 
 def main(args=None):
     parser = argparse.ArgumentParser(description="keep track what you are doing.")
     parser.add_argument("--watch",
                         help="rebuild everytime something changes", action='store_true')
+    parser.add_argument("--serve",
+                        help="start httpserver", action='store_true')
 
     args = parser.parse_args()
 
+    threads = []
+
     if args.watch:
-        observe()
+        threads.append(observe())
+    if args.serve:
+        threads.append(serve())
+
+    #try:
+    #    while True:
+    #        time.sleep(2)
+    #except KeyboardInterrupt:
+    #    observer.stop()
+    #observer.join()
+
     else:
         build()
+
+    try:
+        for t in threads:
+            t.start()
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        for t in threads:
+            #t.stop()
+            t.join()
+        # server.shutdown()
+        sys.exit(0)
 
 
 if __name__ == '__main__':

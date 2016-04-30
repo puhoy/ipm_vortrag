@@ -84,7 +84,7 @@
             </script>
         </section>
         <section>
-    <h1>Problemstellung</h1>
+    <h2>Problemstellung</h2>
     <!--<h3>aka Problemstellung</h3>-->
 
     <aside class="notes">
@@ -104,20 +104,24 @@
     <ul>
         <li>erweiterbares Messagingprotokoll</li>
         <li>dezentral (Architektur ähnlich wie bei Email)</li>
-        <li>offener Standard</li>
+        <li>offener Standard (RFC 6120, 6121, 6122)</li>
         <li>einfach um neue Funktionen zu erweitern</li>
+        <li>unterstützt Transports zu anderen IM-Diensten</li>
     </ul>
+    <aside class="notes">
+        genutzt von: facebook chat, whatsapp, google talk
+    </aside>
 </section>
 <section>
     <section>
         <h5>...Nachteil:</h5>
         <ul>
-        <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
-        <li>out-of-band Übertragungen benötigen Proxy</li>
-            </ul>
+            <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
+            <li>out-of-band Übertragungen benötigen Proxy</li>
+        </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
-        <aside>
+        <aside class="notes">
             base64 -> bytes * 4/3 + overhead
         </aside>
     </section>
@@ -127,66 +131,75 @@
             <p>(23:26:30) <b>A:</b> kannst du dich dran erinnern wann das letzte mal eine dateiübertragung per jabber
                 geklappt hat?</p>
             <p>(23:27:47) <b>B:</b> Nein^^</p>
-            <p>(23:28:14) Angebot zum Senden von xmpp_filetransfer_not_working.png an B</p>
+            <p>(23:28:14) Angebot zum Senden von xmpp_filetransfer_not_working.png an <b>B</b></p>
         </q>
 
         <img src="resources/screenshot_transfer.png">
     </section>
 </section>
         <section>
-    <h2>die Idee</h2>
-    <ol>
-        <li>Dateien/Verzeichnisse freigeben</li>
-        <li>Freigabelisten an alle Kontakte übermitteln</li>
-        <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
-        <li>wenn gewollt downloaden + selbst freigeben</li>
-    </ol>
-    <br>
-    <br>
-    <h3>"...könnte man da nicht BitTorrent benutzen?"</h3>
-    <aside class="notes">
-        freigeben statt pushen, mit bt
-        bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
-        schnellere Übertragung, je mehr Kontakte eine Datei anbieten
-        xmpp: sowieso den ganzen tag offen
-
-        -: eigene downloads sind direkt auch immer in der kontaktliste freigegeben
-    </aside>
-
-</section>
-<section>
-    <h4>kann man. sogar recht elegant.</h4>
-    <h5>BitTorrent -> magnetlinks</h5>
-    <h5>XMPP -> PEP</h5>
-    (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
-</section>
-<section>
-    <h3>Magnetlinks</h3>
-    ...
-</section>
-<section>
     <section>
-        <h3>PEP</h3>
-        grafik: pep publish an server (statusnachricht)
+        <h2>die Idee</h2>
+        <h5>"...könnte man da nicht BitTorrent benutzen?"</h5>
+        <img src="resources/diagrams/concept_simple.svg">
+        <!--<ol>
+            <li>Dateien/Verzeichnisse freigeben</li>
+            <li>Freigabelisten an alle Kontakte übermitteln</li>
+            <li>als Empfänger: bekommene Dateilisten aggregieren, durchsuchbar machen</li>
+            <li>wenn gewollt downloaden + selbst freigeben</li>
+        </ol>
+        <br>
+        <br>-->
+
+        <aside class="notes">
+            freigeben statt pushen, mit bt
+            bittorrent: interessant, weil alle kontakte normalerweise nur wenig upload bandbreite haben
+            schnellere Übertragung, je mehr Kontakte eine Datei anbieten
+            xmpp: sowieso den ganzen tag offen
+
+            -: eigene downloads sind direkt auch immer in der kontaktliste freigegeben
+        </aside>
     </section>
     <section>
-        grafik: pep publish an server (magnetlink daten)
+        <!--<h4>kann man. sogar recht elegant.</h4>-->
+        <h5>BitTorrent: magnetlinks erstellen</h5>
+
+        <h5>XMPP:<br>
+            PEP ("push") oder <br>GET IQ ("pull")</h5>
+        <p>(als Mechanismen zum verteilen)</p>
+        (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
+    </section>
+
+    <section>
+        <h3>Magnetlinks</h3>
+        ...
+    </section>
+    <section>
+        <h2>Konzept f. PEP</h2>
+        <img src="resources/concept.svg">
     </section>
 </section>
 
-
-<section>
-    <h2></h2>
-    <img src="resources/concept.svg">
-</section>
 
 <section>
     <h4>Vorteile:</h4>
     <ul>
-        <li>benötigt wird nur die bestehende XMPP infrastruktur</li>
-        <li>geteilt wird immer nur zwischen bekannten Kontakten, unbekannte IPs lassen sich blockieren</li>
-        <li>kein Torrent Tracker nötig</li>
-        <!-- (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))-->
+        <li> Infrastruktur:
+            <ul>
+                <!--<li>benötigt wird nur die bestehende XMPP Infrastruktur</li>-->
+                <li>keine Änderung nötig!</li>
+                <li>kein (XMPP-)Proxy nötig</li>
+                <li>kein Torrent Tracker nötig um Peers zu vermitteln</li>
+                <li>Downloads aus mehreren Quellen!</li>
+            </ul>
+        </li>
+        <li>Sicherheit:
+            <ul>
+                <li>unbekannte IPs lassen sich blockieren</li>
+                <li>wenn gewollt: erweiterbar zu "normalem" BT Client</li>
+                <!-- (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))-->
+            </ul>
+        </li>
     </ul>
 </section>
 
@@ -209,6 +222,12 @@
 
         <section>
 <div id="chart_div"></div>
+</section>
+        <section>
+    <h3>Vielen Dank!</h3>
+
+    <img src="resources/xkcd_standards.png">
+    <p>(https://xkcd.com/927/)</p>
 </section>
     </div>
 </div>

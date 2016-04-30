@@ -4,20 +4,24 @@
     <ul>
         <li>erweiterbares Messagingprotokoll</li>
         <li>dezentral (Architektur ähnlich wie bei Email)</li>
-        <li>offener Standard</li>
+        <li>offener Standard (RFC 6120, 6121, 6122)</li>
         <li>einfach um neue Funktionen zu erweitern</li>
+        <li>unterstützt Transports zu anderen IM-Diensten</li>
     </ul>
+    <aside class="notes">
+        genutzt von: facebook chat, whatsapp, google talk
+    </aside>
 </section>
 <section>
     <section>
         <h5>...Nachteil:</h5>
         <ul>
-        <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
-        <li>out-of-band Übertragungen benötigen Proxy</li>
-            </ul>
+            <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
+            <li>out-of-band Übertragungen benötigen Proxy</li>
+        </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
-        <aside>
+        <aside class="notes">
             base64 -> bytes * 4/3 + overhead
         </aside>
     </section>
@@ -27,7 +31,7 @@
             <p>(23:26:30) <b>A:</b> kannst du dich dran erinnern wann das letzte mal eine dateiübertragung per jabber
                 geklappt hat?</p>
             <p>(23:27:47) <b>B:</b> Nein^^</p>
-            <p>(23:28:14) Angebot zum Senden von xmpp_filetransfer_not_working.png an B</p>
+            <p>(23:28:14) Angebot zum Senden von xmpp_filetransfer_not_working.png an <b>B</b></p>
         </q>
 
         <img src="resources/screenshot_transfer.png">
