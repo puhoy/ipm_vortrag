@@ -22,16 +22,18 @@
 
 <section>
     <section>
-        <h5>...Nachteil:</h5>
+        <h5>...Nachteile:</h5>
         <ul>
             <li>für in-band Dateiübertragungen muss base64 (zu Text) Codiert werden</li>
-            <li>out-of-band Übertragungen benötigen Proxy</li>
+            <li>out-of-band Übertragungen benötigen Proxyfunktionalität</li>
+            <li>Clients implementieren unterschiedliche Standards</li>
         </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
 
         <aside class="notes">
-            base64 -> bytes * 4/3 + overhead
+            base64 -> bytes * 4/3 + overhead<br>
+            ibb oft rate limited
         </aside>
     </section>
 
