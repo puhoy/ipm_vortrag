@@ -24,11 +24,12 @@
     <section>
         <h5>...Nachteil:</h5>
         <ul>
-            <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
+            <li>für in-band Dateiübertragungen muss base64 (zu Text) Codiert werden</li>
             <li>out-of-band Übertragungen benötigen Proxy</li>
         </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
+
         <aside class="notes">
             base64 -> bytes * 4/3 + overhead
         </aside>
@@ -43,5 +44,18 @@
         </q>
 
         <img src="resources/screenshot_transfer.png">
+    </section>
+    <section>
+        jede Menge Ansätze:
+        <ul>
+            <li>SI File Transfer (XEP-0096)</li>
+            <li>Jingle SOCKS5 Bytestreams Transport Method (XEP-0260)</li>
+            <li>Jingle In-Band Bytestreams Transport Method (XEP-0261)</li>
+            <li>ICE-TCP RFC 6544</li>
+            <li>Out-of-Band Data (XEP-0066)</li>
+            <li>SOCKS5 Bytestreams (XEP-0065)</li>
+            <li>In-Band Bytestreams (XEP-0047)</li>
+            <li>...</li>
+        </ul>
     </section>
 </section>

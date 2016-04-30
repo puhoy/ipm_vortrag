@@ -57,26 +57,18 @@
                 </small>
             </p>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Übersicht
+
+        <section>
+
+                <h2>Übersicht</h2>
                 <ol>
                     <li>Problemstellung (was es an Jabber zu meckern gibt)</li>
-                    <li>Die Idee
-                        <ul>
-                            <li>Techniken
-                                <ul>
-                                    <li>Xmpp: pubsub</li>
-                                    <li>BitTorrent</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Klassendiagramm</li>
-                    <li>Meilensteine</li>
-                    <li></li>
+                    <li>Die Idee</li>
+                    <li>Konzept</li>
+                    <li>Zeitplanung + Meilensteine</li>
+                    <li>Zukunft</li>
                 </ol>
-            </script>
+
         </section>
         <section>
     <h2>Problemstellung</h2>
@@ -119,11 +111,12 @@
     <section>
         <h5>...Nachteil:</h5>
         <ul>
-            <li>für in-band Dateiübertragungen müssten Daten base64 Codiert werden</li>
+            <li>für in-band Dateiübertragungen muss base64 (zu Text) Codiert werden</li>
             <li>out-of-band Übertragungen benötigen Proxy</li>
         </ul>
 
         <img src="resources/xmpp_filetransfer_not_working_underlined.png"><br>
+
         <aside class="notes">
             base64 -> bytes * 4/3 + overhead
         </aside>
@@ -138,6 +131,19 @@
         </q>
 
         <img src="resources/screenshot_transfer.png">
+    </section>
+    <section>
+        jede Menge Ansätze:
+        <ul>
+            <li>SI File Transfer (XEP-0096)</li>
+            <li>Jingle SOCKS5 Bytestreams Transport Method (XEP-0260)</li>
+            <li>Jingle In-Band Bytestreams Transport Method (XEP-0261)</li>
+            <li>ICE-TCP RFC 6544</li>
+            <li>Out-of-Band Data (XEP-0066)</li>
+            <li>SOCKS5 Bytestreams (XEP-0065)</li>
+            <li>In-Band Bytestreams (XEP-0047)</li>
+            <li>...</li>
+        </ul>
     </section>
 </section>
         <section>
@@ -170,22 +176,20 @@
 <section>
     <h4>Vorteile:</h4>
     <ul>
+        <li>Downloads aus mehreren Quellen!</li>
         <li> Infrastruktur:
             <ul>
                 <!--<li>benötigt wird nur die bestehende XMPP Infrastruktur</li>-->
                 <li>(Serverseitig) keine Änderung nötig!</li>
                 <li>kein (XMPP-)Proxy nötig</li>
                 <li>kein Torrent Tracker nötig um Peers zu vermitteln</li>
-                <li>Downloads aus mehreren Quellen!</li>
+
             </ul>
         </li>
-        <li>Sicherheit:
-            <ul>
-                <li>unbekannte IPs lassen sich blockieren</li>
-                <li>wenn gewollt: erweiterbar zu "normalem" BT Client</li>
-                <!-- (könnten aber einen benutzen wenn wir wollten -> addiert "normale" BT Funktionen (Peer discovery: DHT, LSD, Tracker...))-->
-            </ul>
-        </li>
+
+        <li>unbekannte IPs lassen sich blockieren</li>
+
+        <li>wenn gewollt: erweiterbar zu "normalem" BT Client</li>
     </ul>
 </section>
 
@@ -215,7 +219,22 @@
 </section>
 
         <section>
+    <h3>Zeitplanung</h3>
 <img src="resources/diagrams/gantt_dia.png">
+</section>
+        <section>
+    <h3>
+        Zukunft
+    </h3>
+    <h4>Mögliche Erweiterungen</h4>
+    <ul>
+        <li>Integration in XMPP Clients (Pidgin, gajim, Miranda...)</li>
+        <li>"normale" BT Mechanismen (Verbindung zu Tracker, Peer Discovery...)</li>
+        <li>Chat Funktionalität</li>
+        <li>Benachrichtigungen an bestimmte Kontakte wenn Torrents verfügbar/fertig</li>
+        <li>Möglichkeit Kontakte zu blockieren</li>
+        <li>separate BT Clients je XMPP Account</li>
+    </ul>
 </section>
         <section>
     <section>
