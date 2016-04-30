@@ -33,11 +33,6 @@
 <!--[if lt IE 9]>
 <script src="lib/js/html5shiv.js"></script>
 <![endif]-->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-  <script type="text/javascript" src="resources/time.js">
-
-  </script>
 
 	</head>
 
@@ -99,19 +94,27 @@
     </aside>
 </section>
         <section>
-    <h3>XMPP: Extensible Messaging and Presence Protocol</h3>
-    <h5>("Jabber")</h5>
-    <ul>
-        <li>erweiterbares Messagingprotokoll</li>
-        <li>dezentral (Architektur ähnlich wie bei Email)</li>
-        <li>offener Standard (RFC 6120, 6121, 6122)</li>
-        <li>einfach um neue Funktionen zu erweitern</li>
-        <li>unterstützt Transports zu anderen IM-Diensten</li>
-    </ul>
-    <aside class="notes">
-        genutzt von: facebook chat, whatsapp, google talk
-    </aside>
+    <section>
+        <h3>XMPP: Extensible Messaging and Presence Protocol</h3>
+        <h5>("Jabber")</h5>
+        <ul>
+            <li>erweiterbares Messagingprotokoll</li>
+            <li>dezentral (Architektur ähnlich wie bei Email)</li>
+            <li>offener Standard (RFC 6120, 6121, 6122)</li>
+            <li>einfach um neue Funktionen zu erweitern</li>
+            <li>unterstützt Transports zu anderen IM-Diensten</li>
+        </ul>
+
+
+        <aside class="notes">
+            genutzt von: facebook chat, whatsapp, google talk
+        </aside>
+    </section>
+    <section>
+        <img src="resources/xmpp_schema.svg">
+    </section>
 </section>
+
 <section>
     <section>
         <h5>...Nachteil:</h5>
@@ -160,24 +163,7 @@
             -: eigene downloads sind direkt auch immer in der kontaktliste freigegeben
         </aside>
     </section>
-    <section>
-        <!--<h4>kann man. sogar recht elegant.</h4>-->
-        <h5>BitTorrent: magnetlinks erstellen</h5>
 
-        <h5>XMPP:<br>
-            PEP ("push") oder <br>GET IQ ("pull")</h5>
-        <p>(als Mechanismen zum verteilen)</p>
-        (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
-    </section>
-
-    <section>
-        <h3>Magnetlinks</h3>
-        ...
-    </section>
-    <section>
-        <h2>Konzept f. PEP</h2>
-        <img src="resources/concept.svg">
-    </section>
 </section>
 
 
@@ -187,7 +173,7 @@
         <li> Infrastruktur:
             <ul>
                 <!--<li>benötigt wird nur die bestehende XMPP Infrastruktur</li>-->
-                <li>keine Änderung nötig!</li>
+                <li>(Serverseitig) keine Änderung nötig!</li>
                 <li>kein (XMPP-)Proxy nötig</li>
                 <li>kein Torrent Tracker nötig um Peers zu vermitteln</li>
                 <li>Downloads aus mehreren Quellen!</li>
@@ -205,8 +191,16 @@
 
 
 
-
         <section>
+    <h3>Konzept</h3>
+    <img src="../resources/diagrams/mvc.svg">
+</section>
+        <section>
+    <h3>Anwendungsfälle</h3>
+    <img src="../resources/diagrams/usecases.svg">
+</section>
+        
+<section>
 
     <section>
         <h2>Klassendiagramm</h2>
@@ -221,13 +215,59 @@
 </section>
 
         <section>
-<div id="chart_div"></div>
+<img src="resources/diagrams/gantt_dia.png">
 </section>
         <section>
-    <h3>Vielen Dank!</h3>
+    <section>
+        <h3>Vielen Dank!</h3>
+        <img src="resources/xkcd_standards.png">
+        <br>
+        <small><a href="https://xkcd.com/927/">xkcd.com/927</a></small>
+    </section>
+    <section>
+        <!--<h4>kann man. sogar recht elegant.</h4>-->
+        <h5>BitTorrent: magnetlinks erstellen</h5>
+        <small>magnet:?xt=urn:btih:
+            <br><b>b8bb8887a0b8204894eff2c6e00b1f8570dbd43e</b>
+            <br>&dn=Captain+Beefheart+FLAC+discography
+            <br>&tr=udp%3A%2F%2Ftracker.btzoo.eu%3A80%2Fannounce
+            <br>&tr=udp%3A%2F%2Fopen.demonii.com%3A1337
+            <br>&tr=udp%3A%2F%2Ftracker.istole.it%3A80
+            <br>&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80
+            <br>&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80
+        </small>
+        <h5>XMPP:<br>
+            PEP ("push") oder <br>GET IQ ("pull")</h5>
+        <p>(als Mechanismen zum verteilen)</p>
+        (todo: eigentlich reichts wenn ich das sage. folie überflüssig.)
+    </section>
 
-    <img src="resources/xkcd_standards.png">
-    <p>(https://xkcd.com/927/)</p>
+    <section>
+        <h2>Konzept f. PEP</h2>
+        <img src="resources/concept.svg">
+    </section>
+    <section>
+        <ul>
+            <li>
+                <ul>
+                    <li>Message-Stanza: "push"-Mechanismus</li>
+                    <li>Bsp: ich schicke ("pushe") eine Textnachricht an einen meiner Kontakte</li>
+                </ul>
+                <ul>
+                    <li>Presence-Stanza: "publish-subscribe"-Mechanismus</li>
+                    <li>Bsp: ändert ein Kontakt seinen Status erhalten alle Kontakte im Roster einen Presence-Stanza mit
+                        dem aktuellen Status ("publish")
+                    </li>
+                </ul>
+                <ul>
+                    <li>IQ-Stanza : "request-response"-Mechanismus</li>
+                    <li>IQ = Info/Query</li>
+                    <li>Mögliche IQ-Stanzatypen: get, set, error, response</li>
+                    <li>vergleichbar mit HTTP GET, POST</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
 </section>
     </div>
 </div>
